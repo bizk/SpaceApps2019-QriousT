@@ -3,7 +3,7 @@ import './App.css';
 import './NavBar.js';
 
 import Toolbar from '@material-ui/core/Toolbar';
-import { AppBar, IconButton, Typography, Grid, Divider } from '@material-ui/core';
+import { AppBar, IconButton, Typography, Grid, Divider, Switch, Button } from '@material-ui/core';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import NavBar from './NavBar';
 import { CountryDropdown } from 'react-country-region-selector';
@@ -76,24 +76,28 @@ class App extends Component {
 
         <div className="selector">
           <div className='selector_container'>
-              <Typography align="left" variant="h4">Settings</Typography>
-              <Divider variant="left"/>
-
               <Grid container alignItems="justify" spacing={2} >
-                  <Grid item xs={3}>
-                    <Typography variant="h5">Country</Typography>
-                  </Grid>
-                  <Grid item xs={9}>
-                    <CountryDropdown
-                      value={country}
-                      onChange={(val) => this.selectCountry(val)}
-                    />
-                  </Grid>
-                  <Grid item xs={3}>
-                    <Typography variant="h5">Hazzards</Typography>
-                  </Grid>
-                  <Grid item xs={9}/>
-                  
+                <Grid item xs={12}>
+                  <Typography align="justify">
+                    The PVDS is a tool that aims to identify. parts of the population that are at a critically vulnerable in the presence of environmental hazards.
+                  </Typography>
+                </Grid>
+                <Grid item xs={3}><Typography align="left" variant="h4">Parameters</Typography></Grid> 
+                <Grid item xs={12}><Divider/></Grid>
+                <Grid item xs={3}>
+                  <Typography align="left" variant="h5">Country</Typography>
+                </Grid>
+                <Grid item xs={9}>
+                  <CountryDropdown
+                    value={country}
+                    onChange={(val) => this.selectCountry(val)}
+                  />
+                </Grid>
+                <Grid item xs={12}><Divider/></Grid>
+                <Grid item xs={3}>
+                  <Typography align="left" variant="h5">Hazzards</Typography>
+                </Grid>
+                <Grid item xs={9}/>        
                   {/* <FormControl required error={error} component="fieldset" className={classes.formControl}> */}
                   <Grid item xs={12}>
                     <FormControl component="fieldset">
@@ -114,6 +118,7 @@ class App extends Component {
                       <FormHelperText>You can display an error</FormHelperText>
                     </FormControl>
                   </Grid>
+                  <Grid item xs={12}><Divider/></Grid>
                   <Grid item xs={3}>
                     <Typography variant="h5">Vulnerabilities</Typography>
                   </Grid>
@@ -124,27 +129,39 @@ class App extends Component {
                     <FormControl component="fieldset">
                       <FormGroup>
                         <Grid container >
-                          <Grid align="justify" item xs={6}><FormControlLabel
-                          // control={<Checkbox checked={gilad} onChange={handleChange('gilad')} value="gilad" />}
-                            control={<Checkbox value="all" />} label="All" /></Grid>
-                          <Grid align="justify"item xs={6}><FormControlLabel control={ <Checkbox value="flood" /> } label="Flood" /></Grid>
-                          <Grid align="justify"item xs={6}><FormControlLabel control={<Checkbox value="Hurricane" />} label="Hurricane" /></Grid>
-                          <Grid align="justify"item xs={6}><FormControlLabel control={ <Checkbox value="drought" /> } label="Drought" /></Grid>
-                          <Grid align="justify"item xs={6}><FormControlLabel control={ <Checkbox value="fire" /> } label="Fire" /></Grid>
-                          <Grid align="justify"item xs={6}><FormControlLabel control={ <Checkbox value="heavyStorm" /> } label="Heavy Storms" /></Grid>
-                          <Grid align="justify"item xs={6}><FormControlLabel control={ <Checkbox value="tsunami" /> } label="Tsunami" /></Grid>
-                          <Grid align="justify"item xs={6}><FormControlLabel control={ <Checkbox value="highContamination" /> } label="High contamination" /></Grid>
+                         <Grid align="justify"item xs={12}>
+                          <FormControlLabel control={<Switch
+                                  // checked={state.checkedB} onChange={handleChange('checkedB')} value="checkedB"
+                                  color="primary"/>}
+                              label="Economy"/>  
+                          </Grid>
+                          <Grid align="justify"item xs={12}>
+                          <FormControlLabel control={<Switch
+                            // checked={state.checkedB} onChange={handleChange('checkedB')} value="checkedB"
+                            color="primary"/>}
+                            label="Access to medical atention."/>  
+                          </Grid>
+                          <Grid align="justify"item xs={12}>
+                            <FormControlLabel control={<Switch
+                              // checked={state.checkedB} onChange={handleChange('checkedB')} value="checkedB"
+                              color="primary"/>}
+                            label="Humanitarian help acces"/>  
+                          </Grid>
                         </Grid>
                       </FormGroup>
                       <FormHelperText>You can display an error</FormHelperText>
                     </FormControl>
                   </Grid>
+                  <Grid item xs={12}><Divider/></Grid>
+                <Grid item xs={12}>
+                  <Button variant="contained" color="primary" className={"generate_map_button"}>Generate map</Button>
+                </Grid>
               </Grid>   
           </div>
         </div>
 
         <div className="mapDisplay">
-          <img src={require("./resources/default_world_map.jpeg")}></img>
+          <img src={require("./resources/default_world_map.jpeg")}/>
         </div> 
 
         <div className="suggestions">

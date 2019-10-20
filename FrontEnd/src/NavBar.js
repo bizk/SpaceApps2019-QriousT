@@ -44,7 +44,7 @@ export default function NavBar() {
         <Toolbar className={classes.toolbar}>
           <img className={classes.icon} src={require("./resources/support_white_64.png")}/>
           <Typography className={classes.title} variant="h6">
-            QriousT - Helping Hands 
+            PVDS - Population Vulnerability Diagnosis System
           </Typography>
           <div className={classes.grow} />
         </Toolbar>

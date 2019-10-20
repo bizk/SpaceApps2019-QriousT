@@ -64,3 +64,8 @@
   align: left;
   letter-spacing: 1px;
 }
+
+.generate_map_button {
+  min-width: 100%;
+  margin: 1vh;
+}
