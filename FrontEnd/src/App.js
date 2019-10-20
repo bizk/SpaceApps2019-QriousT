@@ -36,6 +36,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function   changeImage(){
+    
+}
 
 class App extends Component {
   constructor (props) {
@@ -43,7 +46,7 @@ class App extends Component {
     this.state = {
       conuntry:'',
       // huracane, flood, drought, fire, heavyStorms, tsunami, highContamination,
-
+      mapUrl: require("./resources/maps/arg.jpeg"),
     }
   };
 
@@ -66,6 +69,7 @@ class App extends Component {
   // const handleHazzardChange = name => event => {
   //   setState({ ...state, [name]: event.target.checked });
   // };
+
 
   render() {
     const { country } = this.state;
@@ -95,7 +99,7 @@ class App extends Component {
                 </Grid>
                 <Grid item xs={12}><Divider/></Grid>
                 <Grid item xs={3}>
-                  <Typography align="left" variant="h5">Hazzards</Typography>
+                  <Typography align="left" variant="h5">Hazards</Typography>
                 </Grid>
                 <Grid item xs={9}/>        
                   {/* <FormControl required error={error} component="fieldset" className={classes.formControl}> */}
@@ -115,15 +119,16 @@ class App extends Component {
                           <Grid align="justify"item xs={6}><FormControlLabel control={ <Checkbox value="highContamination" /> } label="High contamination" /></Grid>
                         </Grid>
                       </FormGroup>
-                      <FormHelperText>You can display an error</FormHelperText>
+                      <FormHelperText>Choose at least one.</FormHelperText>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12}><Divider/></Grid>
                   <Grid item xs={3}>
                     <Typography variant="h5">Vulnerabilities</Typography>
                   </Grid>
+
                   <Grid item xs={9}/>
-                  
+
                   {/* <FormControl required error={error} component="fieldset" className={classes.formControl}> */}
                   <Grid item xs={12}>
                     <FormControl component="fieldset">
@@ -133,7 +138,7 @@ class App extends Component {
                           <FormControlLabel control={<Switch
                                   // checked={state.checkedB} onChange={handleChange('checkedB')} value="checkedB"
                                   color="primary"/>}
-                              label="Economy"/>  
+                              label="Economically"/>  
                           </Grid>
                           <Grid align="justify"item xs={12}>
                           <FormControlLabel control={<Switch
@@ -145,17 +150,13 @@ class App extends Component {
                             <FormControlLabel control={<Switch
                               // checked={state.checkedB} onChange={handleChange('checkedB')} value="checkedB"
                               color="primary"/>}
-                            label="Humanitarian help acces"/>  
+                            label="Humanitarian help access"/>  
                           </Grid>
                         </Grid>
                       </FormGroup>
-                      <FormHelperText>You can display an error</FormHelperText>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12}><Divider/></Grid>
-                <Grid item xs={12}>
-                  <Button variant="contained" color="primary" className={"generate_map_button"}>Generate map</Button>
-                </Grid>
               </Grid>   
           </div>
         </div>
@@ -165,7 +166,32 @@ class App extends Component {
         </div> 
 
         <div className="suggestions">
-          <Typography variant="h5"> Evemts </Typography>  
+          <Grid container alignItems="justify" spacing={1}>
+            <Grid item xs={12}> 
+              <Typography align="left" variant="h5"> Events </Typography>
+            </Grid>
+            <Grid item xs={12}><Divider/></Grid>
+            <Grid item xs={12}>
+              <div className="eventBox">
+                <Grid container>
+                  <Grid align='left' item xs={12}>
+                    <img className="eventIcon" src={require("./resources/Icons/sos.png")}/>
+                    <Typography>51472 families are in danger.</Typography>
+                  </Grid>
+                  <Grid align='left' item xs={12}>
+                    <img className="eventIcon" src={require("./resources/Icons/ambulance.png")}/>
+                    <Typography float="left">12% of the population wont be able to acces aid in case of environmental disasters.</Typography>
+                  </Grid>
+                  <Grid align='left' item xs={12}>
+                    <img className="eventIcon" src={require("./resources/Icons/evacuation.png")}/>
+                    <Typography>In the next 5 years 17% of the population will migrate due to drought hazards.</Typography>
+                  </Grid>
+                </Grid>
+                
+              </div>
+            </Grid>
+          </Grid>
+            
         </div>
       </div>
     )
